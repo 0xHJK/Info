@@ -1,0 +1,1 @@
+docker -t ubuntu/info .

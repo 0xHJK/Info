@@ -1,0 +1,1 @@
+docker run -it --name info -v ./web:/var/www/web -p 80:80 ubuntu/info
