@@ -7,5 +7,5 @@ RUN apt-get -y install nginx php5-fpm
 ADD web.conf /etc/nginx/sites-available/web.conf
 RUN ln -s /etc/nginx/sites-available/web.conf /etc/nginx/sites-enabled/web.conf
 WORKDIR /root
-ADD restart.sh /restart.sh
+ADD restart.sh restart.sh
 RUN chmod +x restart.sh
