@@ -1,1 +1,1 @@
-docker -t ubuntu/info .
+docker build -t ubuntu/info .
