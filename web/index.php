@@ -3,26 +3,33 @@
 <head>
 	<meta charset="UTF-8">
 	<title>本机信息</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
+	<style>
+		table {width:100%; border-spacing: 0px; border-color: #ccc;}
+		td {padding: 4px; font-size: 16px; word-break:break-all;}
+	</style>
 </head>
 <body>
-	<a id="geo" href="/geo.php"><button style="padding:10px;margin:10px 0;width:100%;">获取位置</button></a>
-	<p>服务器端获取信息</p>
-	<table border="1">
-		<tr><td>HTTP_CLIENT_IP</td><td><?php echo $_SERVER['HTTP_CLIENT_IP'] ?></td></tr>
-		<tr><td>HTTP_X_FORWARDED_FOR</td><td><?php echo $_SERVER['HTTP_X_FORWARDED_FOR'] ?></td></tr>
-		<tr><td>REMOTE_ADDR</td><td><?php echo $_SERVER['REMOTE_ADDR'] ?></td></tr>
-		<tr><td>REMOTE_PORT</td><td><?php echo $_SERVER['REMOTE_PORT'] ?></td></tr>
-		<tr><td>HTTP_USER_AGENT</td><td><?php echo $_SERVER['HTTP_USER_AGENT'] ?></td></tr>
-		<tr><td>HTTP_ACCEPT</td><td><?php echo $_SERVER['HTTP_ACCEPT'] ?></td></tr>
-		<?php date_default_timezone_set('Asia/Shanghai'); ?>
-		<tr><td>上海时间</td><td><?php echo date("Y-m-d  h:i:sa") ?></td></tr>
-	</table>
-	<p>IP数据</p>
-	<table id="ip-info" border="1"></table>
-	<p>屏幕信息</p>
-	<table id="screen" border="1"></table>
-	<p>客户端获取信息</p>
-	<table id="client" border="1"></table>
+	<div class="container" style="position:relative;max-width:960px;margin:auto;">
+		<a id="geo" href="/geo.php"><button style="padding:10px;margin:10px 0;width:100%;">获取位置</button></a>
+		<p>服务器端获取信息</p>
+		<table border="1">
+			<tr><td>HTTP_CLIENT_IP</td><td><?php echo $_SERVER['HTTP_CLIENT_IP'] ?></td></tr>
+			<tr><td>HTTP_X_FORWARDED_FOR</td><td><?php echo $_SERVER['HTTP_X_FORWARDED_FOR'] ?></td></tr>
+			<tr><td>REMOTE_ADDR</td><td><?php echo $_SERVER['REMOTE_ADDR'] ?></td></tr>
+			<tr><td>REMOTE_PORT</td><td><?php echo $_SERVER['REMOTE_PORT'] ?></td></tr>
+			<tr><td>HTTP_USER_AGENT</td><td><?php echo $_SERVER['HTTP_USER_AGENT'] ?></td></tr>
+			<tr><td>HTTP_ACCEPT</td><td><?php echo $_SERVER['HTTP_ACCEPT'] ?></td></tr>
+			<?php date_default_timezone_set('Asia/Shanghai'); ?>
+			<tr><td>上海时间</td><td><?php echo date("Y-m-d  h:i:sa") ?></td></tr>
+		</table>
+		<p>IP数据</p>
+		<table id="ip-info" border="1"></table>
+		<p>屏幕信息</p>
+		<table id="screen" border="1"></table>
+		<p>客户端获取信息</p>
+		<table id="client" border="1"></table>
+	</div>
 	<script>
 		function screenInfo(){
 		   var  s = '';
@@ -88,7 +95,7 @@
 		window.onload = function(){
 			getNavi();
 			screenInfo();
-			getIpZishuo();
+			// getIpZishuo();
 			window.onresize = function(e) {
 				screenInfo();
 			}

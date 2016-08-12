@@ -3,12 +3,13 @@
 <head>
 	<meta charset="UTF-8">
 	<title>地理位置信息</title>
+	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
 	<script type="text/javascript" src="http://api.map.baidu.com/api?v=2.0&ak=IGTbHNdRcTUc9KtD92QD7rIBdqzNGl7z"></script>
 </head>
 <body>
-	<button onclick="getGPS()" style="padding:10px;margin:10px 0;width:100%;">获取位置</button>
-	<div id="byip" style="width:100%;height:300px;"></div>
-	<div id="bygps" style="width:100%;height:300px;"></div>
+	<button onclick="getGPS()" style="padding:10px;margin:10px 0;width:100%;">获取GPS位置</button>
+	<div id="byip" style="width:100%;height:400px;"></div>
+	<div id="bygps" style="width:100%;height:400px;"></div>
 	<script>
 		function getmap(x, y, id){
 			var map = new BMap.Map(id);   
