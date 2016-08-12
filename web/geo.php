@@ -8,8 +8,8 @@
 </head>
 <body>
 	<button onclick="getGPS()" style="padding:10px;margin:10px 0;width:100%;">获取GPS位置</button>
-	<div id="byip" style="width:100%;height:400px;"></div>
-	<div id="bygps" style="width:100%;height:400px;"></div>
+	<div id="bygps" style="width:100%;height:350px;"></div>
+	<div id="byip" style="width:100%;height:350px;"></div>
 	<script>
 		function getmap(x, y, id){
 			var map = new BMap.Map(id);   
