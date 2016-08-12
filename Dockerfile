@@ -9,3 +9,4 @@ RUN ln -s /etc/nginx/sites-available/web.conf /etc/nginx/sites-enabled/web.conf
 WORKDIR /root
 ADD restart.sh restart.sh
 RUN chmod +x restart.sh
+CMD bash restart.sh

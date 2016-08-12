@@ -1,1 +1,1 @@
-docker run -it --name info -v $(pwd)/web:/var/www/web -p 82:80 ubuntu/info
+docker run -it --name info -v $(pwd)/web:/var/www/web -p 82:82 ubuntu/info
