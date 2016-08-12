@@ -123,7 +123,6 @@
 			} else {
 				oMeta.setAttribute('content', '');
 			}
-			alert(oMeta.getAttribute('content'));
 		}
 
 		window.onload = function(){
