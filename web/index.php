@@ -123,6 +123,7 @@
 			} else {
 				oMeta.setAttribute('content', '');
 			}
+			getScreenMore();
 		}
 
 		window.onload = function(){
