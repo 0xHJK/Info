@@ -8,6 +8,7 @@
 </head>
 <body>
 	<button onclick="getGPS()" style="padding:10px;margin:10px 0;width:100%;">获取GPS位置</button>
+	<div id="info"></div>
 	<div id="map" style="width:100%;min-height:400px;height:100%;"></div>
 	<script>
 		function getmap(x, y, id){
@@ -23,21 +24,21 @@
 		}
 
 		function getGPS() {
-		  var output = document.getElementById('map');
+		  var info =  document.getElementById('info');
 		  if (!navigator.geolocation){
-		    output.innerHTML = '不支持获取位置';
+		    info.innerHTML = '不支持获取位置';
 		    return;
 		  }
 		  function success(position) {
-		    var latitude  = position.coords.latitude;
 		    var longitude = position.coords.longitude;
-		    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-		    getmap(latitude, longitude, 'map')
+		    var latitude  = position.coords.latitude;
+		    info.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
+		    getmap(longitude, latitude, 'map')
 		  };
 		  function error() {
-		    output.innerHTML = '获取不到位置';
+		    info.innerHTML = '获取不到位置';
 		  }
-		  output.innerHTML = '<p>定位中……</p>';
+		  info.innerHTML = '<p>定位中……</p>';
 		  navigator.geolocation.getCurrentPosition(success, error);
 		}
 
