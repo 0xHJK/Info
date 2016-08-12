@@ -6,7 +6,10 @@
 	<meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no, minimal-ui" />
 	<style>
 		table {width:100%; border-spacing: 0px; border-color: #ccc;}
-		td {padding: 4px; font-size: 16px; word-break:break-all;}
+		td {padding: 4px; font-size: 14px; word-break:break-all;}
+		@media all and (orientation:portrait){
+			.col { display: none; }
+		}
 	</style>
 </head>
 <body>
@@ -17,17 +20,17 @@
 		<p>服务器端获取信息</p>
 		<table border="1">
 			<?php date_default_timezone_set('Asia/Shanghai'); ?>
-			<tr><td>TIME</td><td><?php echo date("Y-m-d  h:i:sa") ?></td></tr>
-			<tr><td>REMOTE_ADDR</td><td><?php echo $_SERVER['REMOTE_ADDR'] ?></td></tr>
-			<tr><td>REMOTE_PORT</td><td><?php echo $_SERVER['REMOTE_PORT'] ?></td></tr>
-			<tr><td>HTTP_USER_AGENT</td><td><?php echo $_SERVER['HTTP_USER_AGENT'] ?></td></tr>
-			<tr><td>HTTP_ACCEPT</td><td><?php echo $_SERVER['HTTP_ACCEPT'] ?></td></tr>
+			<tr><td class="col">TIME</td><td><?php echo date("Y-m-d  h:i:sa") ?></td></tr>
+			<tr><td class="col">REMOTE_ADDR</td><td><?php echo $_SERVER['REMOTE_ADDR'] ?></td></tr>
+			<tr><td class="col">REMOTE_PORT</td><td><?php echo $_SERVER['REMOTE_PORT'] ?></td></tr>
+			<tr><td class="col">HTTP_USER_AGENT</td><td><?php echo $_SERVER['HTTP_USER_AGENT'] ?></td></tr>
+			<tr><td class="col">HTTP_ACCEPT</td><td><?php echo $_SERVER['HTTP_ACCEPT'] ?></td></tr>
 			<?php 
 			if ($_SERVER['HTTP_CLIENT_IP'] != '') {
-				echo '<tr><td>HTTP_CLIENT_IP</td><td>' + $_SERVER['HTTP_CLIENT_IP'] + '</td></tr>';
+				echo '<tr><td class="col">HTTP_CLIENT_IP</td><td>' + $_SERVER['HTTP_CLIENT_IP'] + '</td></tr>';
 			}
 			if ($_SERVER['HTTP_X_FORWARDED_FOR'] != '') {
-				echo '<tr><td>HTTP_X_FORWARDED_FOR</td><td>' + $_SERVER['HTTP_X_FORWARDED_FOR'] + '</td></tr>';
+				echo '<tr><td class="col">HTTP_X_FORWARDED_FOR</td><td>' + $_SERVER['HTTP_X_FORWARDED_FOR'] + '</td></tr>';
 			}
 			?>
 		</table>
@@ -54,14 +57,14 @@
 			getScreenBase()
 			var oScreen = document.getElementById('screen');
 			var s = oScreen.innerHTML;
-			s += '<tr><td>offsetWidth</td><td>'+ document.body.offsetWidth  +' (包括边线的宽)' + '</td></tr>';
-			s += '<tr><td>offsetHeight</td><td>'+ document.body.offsetHeight +' (包括边线的宽)' + '</td></tr>';
+			s += '<tr><td>offsetWidth</td><td>'+ document.body.offsetWidth + '</td></tr>';
+			s += '<tr><td>offsetHeight</td><td>'+ document.body.offsetHeight + '</td></tr>';
 			s += '<tr><td>scrollWidth</td><td>'+ document.body.scrollWidth + '</td></tr>';
 			s += '<tr><td>scrollHeight</td><td>'+ document.body.scrollHeight + '</td></tr>';
 			s += '<tr><td>scrollTop</td><td>'+ document.body.scrollTop + '</td></tr>';
 			s += '<tr><td>scrollLeft</td><td>'+ document.body.scrollLeft + '</td></tr>';
-			s += '<tr><td>window.screenTop</td><td>'+ window.screenTop + '</td></tr>';
-			s += '<tr><td>window.screenLeft</td><td>'+ window.screenLeft + '</td></tr>';
+			s += '<tr><td>screenTop</td><td>'+ window.screenTop + '</td></tr>';
+			s += '<tr><td>screenLeft</td><td>'+ window.screenLeft + '</td></tr>';
 			oScreen.innerHTML = s
 		}
 
@@ -98,13 +101,13 @@
 			var obj = document.getElementById('ip-info');
 			var s = obj.innerHTML;
 			ajax('http://ip.zishuo.net/', function(data){
-				s += '<tr><td>Message</td><td>' + data.message + '</td></tr>';
-				s += '<tr><td>IP</td><td>' + data.ip + '</td></tr>';
-				s += '<tr><td>lng</td><td>' + data.lng + '</td></tr>';
-				s += '<tr><td>lat</td><td>' + data.lat + '</td></tr>';
-				s += '<tr><td>City</td><td>' + data.country + ' ' + data.province + ' ' + data.city + ' ' + data.district + '</td></tr>'
-				s += '<tr><td>Address</td><td>' + data.desc + '</td></tr>';
-				s += '<tr><td>position</td><td>' + data.position + '</td></tr>';
+				s += '<tr><td class="col">Message</td><td>' + data.message + '</td></tr>';
+				s += '<tr><td class="col">IP</td><td>' + data.ip + '</td></tr>';
+				s += '<tr><td class="col">lng</td><td>' + data.lng + '</td></tr>';
+				s += '<tr><td class="col">lat</td><td>' + data.lat + '</td></tr>';
+				s += '<tr><td class="col">City</td><td>' + data.country + ' ' + data.province + ' ' + data.city + ' ' + data.district + '</td></tr>'
+				s += '<tr><td class="col">Address</td><td>' + data.desc + '</td></tr>';
+				s += '<tr><td class="col">position</td><td>' + data.position + '</td></tr>';
 				obj.innerHTML = s;
 				setLink(data.lng, data.lat);
 			})
