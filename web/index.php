@@ -95,7 +95,7 @@
 		window.onload = function(){
 			getNavi();
 			screenInfo();
-			// getIpZishuo();
+			getIpZishuo();
 			window.onresize = function(e) {
 				screenInfo();
 			}
