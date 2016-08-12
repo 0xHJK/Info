@@ -8,8 +8,7 @@
 </head>
 <body>
 	<button onclick="getGPS()" style="padding:10px;margin:10px 0;width:100%;">获取GPS位置</button>
-	<div id="bygps" style="width:100%;height:350px;"></div>
-	<div id="byip" style="width:100%;height:350px;"></div>
+	<div id="map" style="width:100%;height:100%;"></div>
 	<script>
 		function getmap(x, y, id){
 			var map = new BMap.Map(id);   
@@ -24,7 +23,7 @@
 		}
 
 		function getGPS() {
-		  var output = document.getElementById('bygps');
+		  var output = document.getElementById('map');
 		  if (!navigator.geolocation){
 		    output.innerHTML = '不支持获取位置';
 		    return;
@@ -33,7 +32,7 @@
 		    var latitude  = position.coords.latitude;
 		    var longitude = position.coords.longitude;
 		    output.innerHTML = '<p>Latitude is ' + latitude + '° <br>Longitude is ' + longitude + '°</p>';
-		    getmap(latitude, longitude, 'bygps')
+		    getmap(latitude, longitude, 'map')
 		  };
 		  function error() {
 		    output.innerHTML = '获取不到位置';
@@ -45,7 +44,7 @@
 		window.onload = function(){
 			var x = '<?php echo $_GET['x'] ?>';
 			var y = '<?php echo $_GET['y'] ?>';
-			getmap(x, y, 'byip');
+			getmap(x, y, 'map');
 		}
 	</script>
 </body>
